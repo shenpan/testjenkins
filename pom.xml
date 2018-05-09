@@ -1,0 +1,69 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.pan.test</groupId>
+	<artifactId>testjenkins</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<name>Test Jenkins</name>
+	<description>Test Jenkins</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java-version>1.7</java-version>
+	</properties>
+
+	<dependencies>
+
+	</dependencies>
+
+	<build>
+
+		<!--configure the version and some common command for the plug-ins used in modules -->
+		<pluginManagement>
+
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${maven-compiler-plugin.version}</version>
+					<configuration>
+						<source>${java-version}</source>
+						<target>${java-version}</target>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
+		<plugins>
+		</plugins>
+
+	</build>
+
+	<scm>
+		<connection>scm:git:ssh://gerrit.ericsson.se:29418/ica/ica</connection>
+		<developerConnection>scm:git:ssh://gerrit.ericsson.se:29418/ica/ica</developerConnection>
+		<url>scm:git:ssh://gerrit.ericsson.se:29418/ica/ica</url>
+		<tag>HEAD</tag>
+	</scm>
+
+	<distributionManagement>
+		<site>
+			<id>jcat</id>
+			<name>DURA ICA Site</name>
+			<url>${site.scp}/${project.artifactId}</url>
+		</site>
+		<!-- Add/Update the repository in distributionManagement -->
+		<repository>
+			<id>jcat-arm-release</id>
+			<name>jcat-arm-release</name>
+			<url>https://arm.rnd.ki.sw.ericsson.se/artifactory/proj-jcat-release-local</url>
+		</repository>
+		<snapshotRepository>
+			<id>jcat-arm-snapshot</id>
+			<name>jcat-arm-snapshot</name>
+			<url>https://arm.rnd.ki.sw.ericsson.se/artifactory/proj-jcat-dev-local</url>
+		</snapshotRepository>
+	</distributionManagement>
+</project>
